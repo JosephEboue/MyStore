@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:store/models/products.dart';
 import 'package:store/services/api_service_controller.dart';
 import 'package:store/widgets/screen/home/product_item_grid.dart';
 
@@ -28,10 +29,10 @@ class PostWidget extends StatelessWidget {
               crossAxisCount: 2,
               crossAxisSpacing: 15,
               mainAxisSpacing: 15,
-              childAspectRatio: 1,
+              childAspectRatio: 0.5,
             ),
             itemBuilder: (context, index) {
-              return const ProductItemGrid();
+              return ProductItemGrid(product: products[index]);
             },
           );
         } else {
