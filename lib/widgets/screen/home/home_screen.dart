@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:store/widgets/common/appbar_widget.dart';
 import 'package:store/widgets/common/drawer_widget.dart';
 import 'package:store/widgets/screen/home/marquee.dart';
-import 'package:store/widgets/screen/post_widget_impl.dart';
+import 'package:store/widgets/details/product_details.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -66,14 +66,14 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     child: const Text(
-                      'Start Shopping !!!',
+                      'Start Shopping ! 🛍️',
                       style: TextStyle(fontSize: 18),
                     ),
                   ),
                 ],
               ),
             ),
-            PostWidget(),
+            // ProductDetails(),
           ],
         ),
       ),

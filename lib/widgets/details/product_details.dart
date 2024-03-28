@@ -2,12 +2,12 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:store/models/products.dart';
+import 'package:store/models/product.dart';
 import 'package:store/services/api_service_controller.dart';
-import 'package:store/widgets/screen/home/product_item_grid.dart';
+import 'package:store/widgets/screen/product_catalogue/product_item_grid.dart';
 
-class PostWidget extends StatelessWidget {
-  PostWidget({super.key});
+class ProductDetails extends StatelessWidget {
+  ProductDetails({super.key});
 
   final ApiService _apiService = ApiService();
 

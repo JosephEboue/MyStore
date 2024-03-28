@@ -1,8 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:store/models/products.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import 'package:store/models/product.dart';
+import 'package:store/providers/product_provider.dart';
 
 class ProductItemGrid extends StatelessWidget {
-  Products product;
+  Product product;
   ProductItemGrid({super.key, required this.product});
 
   @override
@@ -20,14 +25,21 @@ class ProductItemGrid extends StatelessWidget {
         ),
         Text(product.title),
         Text(
-          product.price.toString() + ' £',
-          style: TextStyle(
+          product.price.toString() + ' €',
+          style: const TextStyle(
             color: Colors.red,
             fontWeight: FontWeight.w500,
           ),
         ),
         OutlinedButton(
-          onPressed: () {},
+          onPressed: () {
+            // stocker le produit dans le provider
+            context.read<ProductProvider>().product = product;
+
+            // inspect(context.watch<ProductProvider>().product);
+            // naviguer vers la page de détails du produit
+            context.pushNamed('item');
+          },
           style: OutlinedButton.styleFrom(
               backgroundColor: Colors.black,
               foregroundColor: Colors.white,

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
+import 'package:store/providers/cart_provider.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   const AppBarWidget({super.key});
@@ -19,19 +22,36 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         IconButton(
             color: Colors.white,
-            onPressed: () => print('Ready for Shopping !'),
-            icon: const Icon(Icons.shopping_bag)),
-        IconButton(
-            color: Colors.white,
-            onPressed: () => print('Search an article'),
-            icon: const Icon(Icons.shopping_cart))
+            onPressed: () => print('Profile Setting !'),
+            icon: const Icon(Icons.person)),
+        Stack(
+          children: [
+            IconButton(
+              color: Colors.white,
+              onPressed: () => print('Sopping card'),
+              icon: const Icon(Icons.shopping_cart),
+            ),
+            Positioned(
+              right: 2,
+              top: 3,
+              child: Container(
+                width: 20,
+                height: 20,
+                decoration: const BoxDecoration(
+                    color: Colors.red, shape: BoxShape.circle),
+                child: Text(
+                  context.watch<CartProvider>().cartLength.toString(),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+          ],
+        ),
       ],
-
       //backgroundColor: const Color(DateTime.august),
     );
   }
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => const Size.fromHeight(55);
 }

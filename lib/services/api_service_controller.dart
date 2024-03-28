@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
 import 'package:store/config/config_api_url.dart';
-import 'package:store/models/products.dart';
+import 'package:store/models/product.dart';
 
 class ApiService {
   Future getPosts({int limit = 4}) async {
@@ -12,7 +12,7 @@ class ApiService {
     if (response.statusCode == 200) {
       List data = jsonDecode(response.body);
       List results = data
-          .map((e) => Products(
+          .map((e) => Product(
                 id: e['id'],
                 title: e['title'],
                 price: e['price'],
